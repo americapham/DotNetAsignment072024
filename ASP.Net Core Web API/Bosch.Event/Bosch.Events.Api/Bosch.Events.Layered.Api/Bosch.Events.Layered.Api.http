@@ -1,0 +1,6 @@
+@Bosch.Events.Layered.Api_HostAddress = http://localhost:5110
+
+GET {{Bosch.Events.Layered.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

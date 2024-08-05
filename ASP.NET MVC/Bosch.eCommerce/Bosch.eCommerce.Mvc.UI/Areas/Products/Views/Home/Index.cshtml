@@ -1,0 +1,36 @@
+﻿@model IEnumerable<ProductDto>
+@{
+    ViewData["Title"] = "Bosch Products List!";
+}
+
+<div class="text-center">
+    <h1>@ViewBag.PageTitle</h1>
+    <hr />
+    <div class="container-fluid">
+        <div class="row">
+            @foreach (var product in Model)
+            {
+                <div class="col-sm-3">
+                    <div class="card shadow-lg m-5 bg-body-tertiary rounded" style="width: 20rem;">
+                        <img src="~/@Url.Content(product.Picture)" class="card-img-top" alt="@product.ProductName" height="250">
+                        <div class="card-body">
+                            <h5 class="card-title">@product.ProductName</h5>
+                            <p class="card-text">@product.Description</p>
+                            <hr>
+                            <div class="text-center">
+                                <a class="btn btn-success" asp-area="Products" 
+                                                           asp-controller="Home"
+                                                           asp-action="Details"
+                                                           asp-route-id="@product.ProductId">Show Details</a>
+                                <a class="btn btn-dark" asp-area="Carts"
+                                                        asp-controller="Home"
+                                                        asp-action="AddToCart"
+                                                        asp-route-productId="@product.ProductId">Add To Cart</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

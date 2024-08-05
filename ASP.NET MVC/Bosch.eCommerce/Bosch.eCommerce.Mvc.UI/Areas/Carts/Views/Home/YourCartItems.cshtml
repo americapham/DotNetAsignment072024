@@ -1,0 +1,21 @@
+﻿@model IEnumerable<MyCartVM>
+@{
+    ViewData["Title"] = "Your Cart Items";
+}
+
+@if (Model != null && Model.Count() > 0)
+{
+    <div class="text-center">
+        <h1>Your Cart Details!</h1>
+        @foreach (var item in Model)
+        {
+            <h5>@item.ProductName</h5>
+        }
+    </div>
+}
+else
+{
+    <h1>@ViewBag.NoItemsInCartMessage</h1>
+}
+<hr/>
+<a class="btn btn-primary">Proceed To Check Out</a>
